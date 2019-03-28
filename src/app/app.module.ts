@@ -5,6 +5,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MainTableModule} from './main-table/main-table.module';
+import  { FormConceptsModule } from './form-concepts/form-concepts.module';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import {MainTableModule} from './main-table/main-table.module';
     BrowserModule,
     AppRoutingModule,
     MainTableModule,
-    NgbModule
+    NgbModule,
+    FormConceptsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
