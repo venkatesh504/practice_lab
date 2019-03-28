@@ -44,4 +44,32 @@
       </tr>
     </tbody>
   </table>
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let complexs of Complex">
+          <td>{{complexs.id}}</td>
+          <td >
+            <ul *ngFor="let Batters of complexs.batters.batter">
+              <li>{{Batters.id}}</li>
+              <li>{{Batters.type}}</li>
+         
+            </ul>
+          </td>
+          <td >
+              <ul *ngFor="let Batters of complexs.topping">
+                <li>{{Batters.id}}</li>
+                <li>{{Batters.type}}</li>
+           
+              </ul>
+            </td>
+        </tr>
+      </tbody>
+    </table>
 </div>
