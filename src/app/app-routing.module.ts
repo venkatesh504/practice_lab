@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MainTableModule} from './main-table/main-table.module';
-import {FormConceptsModule} from './form-concepts/form-concepts.module';
-
-const newLocal = 'main-table';
+import { MainComponetComponent } from './main-componet/main-componet.component';
+import { DemomaincomponentComponent } from './demomaincomponent/demomaincomponent.component';
 const routes: Routes = [
-{path:'', redirectTo:'main-tbale', pathMatch: 'full'},
-  {path:'main-table',loadChildren:"./main-table/main-table.module#MainTableModule"},
-  {path:'form-concept',loadChildren:"./form-concepts/form-concepts.module#FormConceptsModule"}
+  {path:'',component:MainComponetComponent},
+  {path:'ss',component:DemomaincomponentComponent},
+  {path:'form-concept', loadChildren:"./form-concepts/form-concepts.module#FormConceptsModule"},
+  {path:'main-table', loadChildren:"./main-table/main-table.module#MainTableModule"}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),
-    MainTableModule,
-    FormConceptsModule,
+  imports: [RouterModule.forRoot(routes)
 ],
   exports: [RouterModule]
 })

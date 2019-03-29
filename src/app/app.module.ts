@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MainTableModule} from './main-table/main-table.module';
 import  { FormConceptsModule } from './form-concepts/form-concepts.module';
+import { MainComponetComponent } from './main-componet/main-componet.component';
+import { DemomaincomponentComponent } from './demomaincomponent/demomaincomponent.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponetComponent,
+    DemomaincomponentComponent
   ],
   imports: [
     BrowserModule,
