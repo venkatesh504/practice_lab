@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {FormsModule} from '@angular/forms'
 import { FormConceptsRoutingModule } from './form-concepts-routing.module';
 
 import { FormValidationComponent } from './form-validation/form-validation.component';
@@ -9,7 +9,8 @@ console.log('came to form module');
   declarations: [ FormValidationComponent],
   imports: [
     CommonModule,
-    FormConceptsRoutingModule
+    FormConceptsRoutingModule,
+    FormsModule
   ]
 })
 export class FormConceptsModule { 

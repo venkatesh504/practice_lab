@@ -1,3 +1,77 @@
-<p>
-  form-validation works!
-</p>
+<div class="container">
+
+  <h1> Template-driven Form Validation</h1>
+  <form action="" name="Template-form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <label for="usr">Name:</label>
+      <input typ  e="text" name=" first-name" class="form-control" id="usr" [(ngModel)]="name" required minlength="4"
+        appForbiddenName="bob" #Name="ngModel" />
+      <div class="form-group">
+        <div *ngIf="Name.invalid && (Name.dirty || Name.touched)" class="alert alert-danger">
+          <span *ngIf="Name.errors.required">
+            Name is required.
+          </span>
+          <span *ngIf="Name.errors.minlength">
+            Name must be at least 4 characters long.
+          </span>
+          <span *ngIf="Name.errors.forbiddenName">
+            Name cannot be Bob.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+     <input type="password"  name="password" class="form-control" id="pwd" [(ngModel)]="password" #Password='ngModel'  required   />
+      <div class="form-group">
+          <div *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="alert alert-danger">
+              <span *ngIf="Password.errors.required">
+                    Name is required.
+                  </span>
+              <span *ngIf="Password.errors.minlength">
+                  password length should be 8 character 
+              </span>
+          </div>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" name="Age" class="form-control" id="age" (ngModelChange)="statusFunction()" [(ngModel)]="age" #Age="ngModel" required  />
+        <div class="form-group">
+                <div *ngIf="Age.invalid && (Age.dirty || Age.touched)" class="alert alert-danger">
+                    <div *ngIf="Age.errors.required">
+                        age required 
+                    </div>
+                   
+                </div>
+                <div *ngIf="statusFunction()" class="alert alert-danger">
+                    age should be greater
+              </div>
+            </div>
+        
+    </div>
+    <div class="form-group">
+      <label for="sel1">courses:</label>
+      <select class="form-control" id="sel1" [(ngModel)]="cities_option" name="cities" #Cities="ngModel">
+        <option *ngFor="let cities of form_data.cities_options">{{cities}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="sel1">Cities:</label>
+      <select class="form-control" id="sel2" [(ngModel)]="course_option"  name="course" #Course="ngModel" >
+        <option *ngFor="let courses of form_data.course_options">{{courses}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" [disabled]="f.form.pristine || f.form.invalid">submit</button>
+    </div>
+
+  </form>
+
+  <p>submitted name {{data.name}}</p>
+  <p>submitted password{{password}}</p>
+  <p>selected cities is : {{cities_option}}</p>
+  <p>selected course is : {{course_option}}</p>
+
+
+</div>

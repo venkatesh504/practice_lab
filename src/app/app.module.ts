@@ -1,27 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import {MainTableModule} from './main-table/main-table.module';
-// import  { FormConceptsModule } from './form-concepts/form-concepts.module';
-import { MainComponetComponent } from './main-componet/main-componet.component';
-import { DemomaincomponentComponent } from './demomaincomponent/demomaincomponent.component';
-
-
 @NgModule({
   declarations: [
-    AppComponent,
-    MainComponetComponent,
-    DemomaincomponentComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // MainTableModule,
+    FormsModule,
+
     NgbModule,
-    // FormConceptsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
