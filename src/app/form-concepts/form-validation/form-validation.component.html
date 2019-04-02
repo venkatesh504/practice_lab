@@ -4,7 +4,7 @@
   <form action="" name="Template-form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
     <div class="form-group">
       <label for="usr">Name:</label>
-      <input typ  e="text" name=" first-name" class="form-control" id="usr" [(ngModel)]="name" required minlength="4"
+      <input typ  e="text" name=" first-name" class="form-control" id="usr" [(ngModel)]="name" required minlength="4" 
         appForbiddenName="bob" #Name="ngModel" />
       <div class="form-group">
         <div *ngIf="Name.invalid && (Name.dirty || Name.touched)" class="alert alert-danger">
@@ -29,22 +29,24 @@
                     Name is required.
                   </span>
               <span *ngIf="Password.errors.minlength">
-                  password length should be 8 character 
+                  password length should be 8 character   
               </span>
           </div>
       </div>
     </div>
     <div class="form-group">
         <label for="age">Age</label>
-        <input type="number" name="Age" class="form-control" id="age" (ngModelChange)="statusFunction()" [(ngModel)]="age" #Age="ngModel" required  />
+        <input type="number" name="Age" class="form-control" id="age" (click)="statusFunction()" [(ngModel)]="age" #Age="ngModel" required  minlength="2" />
         <div class="form-group">
                 <div *ngIf="Age.invalid && (Age.dirty || Age.touched)" class="alert alert-danger">
                     <div *ngIf="Age.errors.required">
                         age required 
                     </div>
-                   
+                    <span *ngIf="Name.errors.minlength">
+                      Name must be at least 4 characters long.
+                    </span>
                 </div>
-                <div *ngIf="statusFunction()" class="alert alert-danger">
+                <div *ngIf="statusFunction() && !Age.invalid " class="alert alert-danger">
                     age should be greater
               </div>
             </div>
@@ -52,15 +54,21 @@
     </div>
     <div class="form-group">
       <label for="sel1">courses:</label>
-      <select class="form-control" id="sel1" [(ngModel)]="cities_option" name="cities" #Cities="ngModel">
-        <option *ngFor="let cities of form_data.cities_options">{{cities}}</option>
+      <select class="form-control" id="sel1" [(ngModel)]="course_option" name=" course" #Course="ngModel" >
+        <option value= 'NOCOURSE'>Select Course</option>
+        <option *ngFor="let courses of form_data.course_options ">{{courses}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="sel1">Cities:</label>
-      <select class="form-control" id="sel2" [(ngModel)]="course_option"  name="course" #Course="ngModel" >
-        <option *ngFor="let courses of form_data.course_options">{{courses}}</option>
+      <select class="form-control" id="sel2" [(ngModel)]="cities_option"  name="cities" #Cities="ngModel" >
+          <option value= 'NOCITY' ">Select Course</option>
+        <option *ngFor="let cities  of form_data.cities_options">{{cities}}</option>
       </select>
+      <!-- <div *ngIf="selected_cities" class="alert alert-danger">
+          select any city
+          </div> -->
+
     </div>
     <div class="form-group">
       <button class="btn btn-primary" [disabled]="f.form.pristine || f.form.invalid">submit</button>

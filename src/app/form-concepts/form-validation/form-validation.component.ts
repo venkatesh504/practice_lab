@@ -16,31 +16,33 @@ age:number;
 status:any;
 
 data: any = {};
-  constructor(
-    private cd:ChangeDetectorRef
-  ) {
+  constructor() {
   }
 
   ngOnInit() {
     this.form_data = Form_Data; 
+    this.course_option = 'NOCOURSE';
+    this.cities_option = 'NOCITY'
     
   }
-  onSubmit (){ 
-   
-        alert(JSON.stringify(this.data));
-   
+  onSubmit ( controls, invalid){ 
+
+        if( this.course_option  == "NOCOURSE"){
+alert(JSON.stringify("select Any courseto submit"));
+        }
+        if( this.cities_option== "NOCITY"){
+     alert(JSON.stringify("select Any city to submit"));
+             }
   }
   statusFunction(){
-    console.log('checking age')
-    if(this.age<18){
+    // console.log('checking age')
+    if(this.age < 18){
       console.log("coming");
-      this.status= true;
-    }else{
-      console.log("not v");
-      this.status = false;
+      // this.status= true;
+          return true;
     }
-    return true;
-    // this.cd.detectChanges()
+
+
   }
  
 

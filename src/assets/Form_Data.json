@@ -1,6 +1,6 @@
 {
-    "cities_options":["one","two","three"],
-    "course_options":["one","two","three"]
+    "cities_options":["hyderabad","Warangal","karimnagar"],
+    "course_options":["BE","Btech","Degree"]
 
 }
    
