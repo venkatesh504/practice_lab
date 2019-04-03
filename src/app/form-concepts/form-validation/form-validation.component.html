@@ -62,12 +62,10 @@
     <div class="form-group">
       <label for="sel1">Cities:</label>
       <select class="form-control" id="sel2" [(ngModel)]="cities_option"  name="cities" #Cities="ngModel" >
-          <option value= 'NOCITY' ">Select Course</option>
+          <option value= 'NOCITY' >Select Course</option>
         <option *ngFor="let cities  of form_data.cities_options">{{cities}}</option>
       </select>
-      <!-- <div *ngIf="selected_cities" class="alert alert-danger">
-          select any city
-          </div> -->
+     
 
     </div>
     <div class="form-group">
